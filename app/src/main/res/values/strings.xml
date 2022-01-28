@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">DynamicView</string>
+    <string name="general_information">General Information</string>
+    <string name="public_name">Public Name*</string>
+    <string name="name">Name*</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="gender">Gender</string>
+    <string name="browse">Browse</string>
+    <string name="email">Email*</string>
+    <string name="company_information">Company Information</string>
+    <string name="company_name">Company Name</string>
+    <string name="about">About</string>
+    <string name="support_number">Support Number</string>
+    <string name="seo_information">SEO Information</string>
+    <string name="meta_keywords">Meta Keywords</string>
+    <string name="address_information">Address Information</string>
+    <string name="address">Address*</string>
+    <string name="city">City</string>
+    <string name="zip_postal_code">ZIP/Postal Code*</string>
+    <string name="state">State</string>
+    <string name="country">Country</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="twitter_id">Twitter ID</string>
+    <string name="facebook_id">FaceBook ID</string>
+    <string name="support_email">Support Email</string>
+    <string name="support_information">Support Information</string>
+    <string name="company_address">Company Address</string>
+    <string name="todo">Todo</string>
+    <string name="contact_number">Contact Number*</string>
+    <string name="save">Save</string>
+    <string name="edit_profile">Edit Profile</string>
+</resources>
