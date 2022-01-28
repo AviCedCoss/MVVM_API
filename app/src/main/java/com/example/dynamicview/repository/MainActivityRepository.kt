@@ -1,6 +1,12 @@
 package com.example.dynamicview.repository
 
+import android.R
+import android.provider.Settings.Global.getString
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.example.dynamicview.MainActivity
 import com.example.dynamicview.model.ServicesSetterGetter
@@ -15,7 +21,8 @@ import retrofit2.Response
 
 object MainActivityRepository {
 
-    val serviceSetterGetter = MutableLiveData<ServicesSetterGetter>()
+    private val serviceSetterGetter = MutableLiveData<ServicesSetterGetter>()
+
 
     fun getServicesApiCall(): MutableLiveData<ServicesSetterGetter> {
         val call = RetrofitClient.apiInterface.getServices(
@@ -35,8 +42,9 @@ object MainActivityRepository {
                 Log.v("DEBUG : ", response.body().toString())
 
                 val main = MainActivity()
+                    serviceSetterGetter.value = response.body()
 
-                val productData=Gson().toJson(response.body())
+               /* val productData=Gson().toJson(response.body())
                 val jsonObject = JSONObject(productData)
                 val newData=jsonObject.getJSONObject("data")
                 if(newData.getString("success")=="true")
@@ -63,6 +71,30 @@ object MainActivityRepository {
                             }
                             else if (addressArray.getJSONObject(i).getString("field_to_post")=="region_id"){
                                 val state=addressArray.getJSONObject(i).getString("saved_value")
+
+                                // access the items of the list
+                                val languages = state
+
+                                // access the spinner
+                                val spinner = main.spState
+                                if (spinner != null) {
+                                    val adapter = ArrayAdapter(this@MainActivityRepository,
+                                        R.layout.simple_spinner_item, languages)
+                                    spinner.adapter = adapter
+
+                                    spinner.onItemSelectedListener = object :
+                                        AdapterView.OnItemSelectedListener {
+                                        override fun onItemSelected(parent: AdapterView<*>,
+                                                                    view: View, position: Int, id: Long) {
+
+                                        }
+
+                                        override fun onNothingSelected(parent: AdapterView<*>) {
+                                            // write code to perform some action
+                                        }
+                                    }
+                                }
+
                                 // main.spState.setText(state)
                                 Log.v("city : ", state.toString())
                             }
@@ -190,7 +222,7 @@ object MainActivityRepository {
                             Log.v("city : ", twitterId.toString())
                         }
                     }
-                }
+                }*/
             }
         })
 
